@@ -2,8 +2,8 @@
 {
     public class UpdateTodoItem
     {
-        public required string itemDescription { get; set; }
-        public bool done { get; set; }
+        public required string ItemDescription { get; set; }
+        public bool Done { get; set; }
 
     }
 }

@@ -64,15 +64,15 @@ namespace TodoApi.Controllers
 
         //PUT: api/todolist/5/todoitem/10
         [HttpPut("{idItem}")]
-        public async Task<ActionResult> PutTodoItem(long idList, long idItem, UpdateTodoItem payload)
+        public async Task<ActionResult> PutTodoItem(long idList, long idItem, [FromBody] UpdateTodoItem payload)
         {
             var todoItem = await _context.ItemLists.FindAsync(idItem);
             if (todoItem == null || todoItem.IdList != idList)
             {
                 return NotFound();
             }
-            todoItem.ItemDescription = payload.itemDescription;
-            todoItem.Done = payload.done;
+            todoItem.ItemDescription = payload.ItemDescription;
+            todoItem.Done = payload.Done;
             await _context.SaveChangesAsync();
             return Ok(todoItem);
         }
